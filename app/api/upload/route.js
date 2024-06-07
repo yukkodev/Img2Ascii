@@ -25,17 +25,14 @@ async function parseForm(request) {
 
 export async function POST(request) {
   try {
-    // Convert the Next.js request into a Node.js IncomingMessage
     const formData = await request.formData();
     const file = formData.get('file');
     if (!file) {
       return NextResponse.json({ error: 'File is missing' }, { status: 400 });
     }
 
-    // Read the file into a buffer
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    // Save the buffer to a temporary file
     const tempPath = './temp_upload';
     if (!fs.existsSync(tempPath)) {
       fs.mkdirSync(tempPath);
@@ -43,15 +40,20 @@ export async function POST(request) {
     const filePath = `${tempPath}/${file.name}`;
     fs.writeFileSync(filePath, buffer);
 
-    // Process the image with Jimp
     const image = await Jimp.read(filePath);
     const ascii = await imageToAscii(image);
     fs.unlinkSync(filePath);
 
-    return NextResponse.json({ ascii });
+    return new Response(JSON.stringify({ ascii }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' },
+    });
   } catch (error) {
     console.error('Error processing the image:', error);
-    return NextResponse.json({ error: 'Failed to process image' }, { status: 500 });
+    return new Response(JSON.stringify({ error: 'Failed to process image' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 }
 
