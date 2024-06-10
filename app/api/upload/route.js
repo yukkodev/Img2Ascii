@@ -29,16 +29,13 @@ export async function POST(request) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    const tempPath = './temp_upload';
-    if (!fs.existsSync(tempPath)) {
-      fs.mkdirSync(tempPath);
-    }
-    const filePath = `${tempPath}/${file.name}`;
+    const tempPath = '/tmp';
+    const filePath =`${tempPath}/${file.name}`
     fs.writeFileSync(filePath, buffer);
 
     const image = await Jimp.read(filePath);
     const ascii = await imageToAscii(image);
-    fs.unlinkSync(filePath);
+    fs.unlinkSync(filePath);   
 
     return new Response(JSON.stringify({ ascii }), {
       status: 200,
