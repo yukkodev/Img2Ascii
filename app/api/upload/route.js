@@ -4,11 +4,7 @@ import formidable from 'formidable';
 import fs from 'fs';
 import Jimp from 'jimp';
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+export const dynamic = 'force-dynamic';
 
 async function parseForm(request) {
   const form = new formidable.IncomingForm();
