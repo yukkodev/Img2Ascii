@@ -2,6 +2,8 @@
 "use client";
 import { useState } from 'react';
 
+
+
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);
   const [ascii, setAscii] = useState('');
