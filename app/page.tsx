@@ -1,18 +1,6 @@
 "use client";
 import { useState } from 'react';
-import Head from 'next/head';
 
-function IndexPage() {
-  return (
-    <div>
-      <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
-          crossOrigin="anonymous"></script>
-      </Head>
-      
-    </div>
-  )
-}
 
 function Home() {
   const [image, setImage] = useState<File | null>(null);
@@ -69,7 +57,7 @@ function Home() {
 export default function CombinedPage() {
   return (
     <div>
-      <IndexPage />
+      
       <Home />
     </div>
   );

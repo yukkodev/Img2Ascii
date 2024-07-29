@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
+import AdSense from "./components/AdSense";
+
+
 
 
 
@@ -20,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <AdSense pId="ca-pub-4992058049429673"/>
+      </head>
       <body className={inter.className}>
         {children}
         <Analytics />
