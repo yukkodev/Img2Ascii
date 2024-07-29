@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
-import AdSense from "./components/AdSense";
 
 
 
@@ -24,7 +23,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <AdSense pId="ca-pub-4992058049429673"/>
+      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}=ca-pub-4992058049429673`}
+     crossOrigin="anonymous"></script>
       </head>
       <body className={inter.className}>
         {children}
