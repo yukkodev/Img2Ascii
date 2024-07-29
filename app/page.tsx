@@ -1,18 +1,21 @@
 // app/page.tsx
 "use client";
 import { useState } from 'react';
-import Head from 'next/head';
-
-
-function MyLibraryLoader() {
+import Head from 'next/head'
+ 
+function IndexPage() {
   return (
-    <head>
+    <div>
+      <Head>
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
      crossorigin="anonymous"></script>
-    </head>
+      </Head>
+      <p>Hello world!</p>
+    </div>
   )
 }
-
+ 
+export default IndexPage
 
 export default function Home() {
   const [image, setImage] = useState<File | null>(null);

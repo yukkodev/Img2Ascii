@@ -3,6 +3,22 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from '@vercel/analytics/react';
 import React from 'react';
+import Head from 'next/head'
+ 
+function IndexPage() {
+  return (
+    <div>
+      <Head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
+     crossOrigin="anonymous"></script>
+      </Head>
+      
+    </div>
+  )
+}
+ 
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 
