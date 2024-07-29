@@ -9,7 +9,7 @@ function IndexPage() {
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
           crossOrigin="anonymous"></script>
       </Head>
-      <p>Hello world!</p>
+      
     </div>
   )
 }
