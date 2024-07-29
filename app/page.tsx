@@ -1,7 +1,17 @@
 // app/page.tsx
 "use client";
 import { useState } from 'react';
+import Head from 'next/head';
 
+
+function MyLibraryLoader() {
+  return (
+    <head>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
+     crossOrigin="anonymous"></script>
+    </head>
+  )
+}
 
 
 export default function Home() {
@@ -45,10 +55,10 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Image to ASCII Art Converter</h1>
+      <h1>Image to ASCII Art</h1>
       <form onSubmit={handleSubmit}>
         <input type="file" onChange={handleFileChange} accept="image/*" />
-        <button type="submit">Upload and Convert</button>
+        <button type="submit">Upload</button>
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {ascii && <pre>{ascii}</pre>}
