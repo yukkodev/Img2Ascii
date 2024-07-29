@@ -1,23 +1,20 @@
-// app/page.tsx
 "use client";
 import { useState } from 'react';
-import Head from 'next/head'
- 
+import Head from 'next/head';
+
 function IndexPage() {
   return (
     <div>
       <Head>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
-     crossorigin="anonymous"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4992058049429673"
+          crossOrigin="anonymous"></script>
       </Head>
       <p>Hello world!</p>
     </div>
   )
 }
- 
-export default IndexPage
 
-export default function Home() {
+function Home() {
   const [image, setImage] = useState<File | null>(null);
   const [ascii, setAscii] = useState('');
   const [error, setError] = useState('');
@@ -65,6 +62,15 @@ export default function Home() {
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {ascii && <pre>{ascii}</pre>}
+    </div>
+  );
+}
+
+export default function CombinedPage() {
+  return (
+    <div>
+      <IndexPage />
+      <Home />
     </div>
   );
 }
